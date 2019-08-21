@@ -25,7 +25,6 @@ def run():
                 print("사진입력!! 스킵~")
                 continue
             if 'text' in msg.keys() and 'user' in msg.keys():
-                # slack.chat.post_message(msg['channel'], msg['text'] + "의 날씨정보를 가져오고 있습니다. 잠시만 기다려 주세요..")
                 result = shorty.wordpop(msg['text'])
                 fin = ''.join(result)
                 slack.chat.post_message(msg['channel'], fin)
