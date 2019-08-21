@@ -7,4 +7,4 @@ COPY requirements.txt ./
 RUN pip3 install --no-cache-dir --requirement requirements.txt
 
 COPY . .
-CMD ["python3", "./slackbot.py"]
+CMD ["python3", "./slckbot.py"]
