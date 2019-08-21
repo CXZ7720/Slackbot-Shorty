@@ -1,4 +1,5 @@
 import json
+import os
 
 import websocket
 from slacker import Slacker
@@ -6,7 +7,7 @@ from slacker import Slacker
 import shorty
 
 # BotUserOauth = os.environ["BOT_USER_OAUTH"]
-token = 'xoxb-392235298884-732535143956-JGTRigu6CwbYBT5JwuWhCqfD'
+token = os.getenv('SLCK_TOKEN')
 
 slack = Slacker(token)
 response = slack.rtm.start()
