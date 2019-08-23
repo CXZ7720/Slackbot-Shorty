@@ -1,5 +1,4 @@
 import json
-import os
 
 import websocket
 from slacker import Slacker
@@ -7,7 +6,8 @@ from slacker import Slacker
 import shorty
 
 # BotUserOauth = os.environ["BOT_USER_OAUTH"]
-token = os.getenv('SLCK_TOKEN')
+token = 'xoxb-392235298884-732535143956-tooz5FY3VSP2XIX1fAuIkBua'  # TEST workspace
+# token = os.getenv('SLCK_TOKEN')
 
 slack = Slacker(token)
 response = slack.rtm.start()
@@ -25,7 +25,14 @@ def run():
                 print("사진입력!! 스킵~")
                 continue
             if 'text' in msg.keys() and 'user' in msg.keys():
-                result = shorty.wordpop(msg['text'])
+                result = shorty.validate(msg['text'])
+                if result[0] == "PASS":
+                    if result[1] == "ONEWORD":
+                        print("1개 단어 입력은 건너뜀.")
+                        continue
+                    else:
+                        print("도배방지 활성화 - 명사+동사 : ", result[1], "전체 형태소 : ", result[2])
+                        continue
                 fin = ''.join(result)
                 slack.chat.post_message(msg['channel'], fin)
 
