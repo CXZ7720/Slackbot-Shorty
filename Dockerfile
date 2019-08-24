@@ -1,10 +1,12 @@
-FROM python:3
+FROM ubuntu:latest
 
 RUN mkdir -p /usr/src/slackbot-shorty
 WORKDIR /usr/src/slackbot-shorty
-RUN bash <(curl -s https://raw.githubusercontent.com/koshort/peunjeon/master/scripts/mecab.sh)
-COPY requirements.txt ./
-RUN pip3 install --no-cache-dir --requirement requirements.txt
+RUN apt-get update
+RUN apt-get upgrade
+RUN apt-get install python3-pip git build-essential
+RUN ./mecab.sh
+RUN pip3 install --no-cache-dir --requirement requirement.txt
 
 COPY . .
-CMD ["python3", "./slckbot.py"]
+CMD ["python3", "./slackbot.py"]

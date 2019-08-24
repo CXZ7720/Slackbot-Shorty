@@ -1,3 +1,4 @@
 websocket-client
 slacker
+konlpy
 eunjeon
