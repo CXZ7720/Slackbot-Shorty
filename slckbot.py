@@ -1,12 +1,12 @@
 import json
-
+import os
 import websocket
 from slacker import Slacker
 
 import shorty
 
-# BotUserOauth = os.environ["BOT_USER_OAUTH"]
-token = 'xoxb-392235298884-732535143956-tooz5FY3VSP2XIX1fAuIkBua'  # TEST workspace
+BotUserOauth = os.environ["BOT_USER_OAUTH"]
+#token = 'xoxb-392235298884-732535143956-tooz5FY3VSP2XIX1fAuIkBua'  # TEST workspace
 # token = os.getenv('SLCK_TOKEN')
 
 slack = Slacker(token)

@@ -12,7 +12,7 @@ def validate(msg):
 
     입력값에 대하여 선택적으로 봇이 답변하도록 하여 채팅창 도배를막음.
     """
-    tagger = Mecab()
+    tagger = Mecab('/usr/local/lib/mecab/dic/mecab-ko-dic')
     Pos = tagger.pos(msg)
     numWord = 0  # 동사개수 - 형태소 분리 후 VV 개수로 파악.
     realword = []  # 실제 의미를 가지는 단어들
